@@ -1,6 +1,6 @@
-% myreportfmt.cls
+% myrepofmt.cls
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{myreportfmt}[2026/04/07 Formal Physics Report Class]
+\ProvidesClass{myrepofmt}[2026/04/07 Formal Physics Report Class]
 
 % --- オプション処理 ---
 \newif\if@usecoverpage
