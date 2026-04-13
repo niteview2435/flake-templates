@@ -1,0 +1,20 @@
+# R history and workspace
+.RData
+.Rhistory
+.Rapp.history
+.Ruserdata
+
+# RStudio user-specific directories
+.Rproj.user/
+
+# Environment variables (prevents committing secrets)
+.Renviron
+
+# R package development
+*.Rcheck/
+*.tar.gz
+
+# Nix and direnv environments
+.Rlibs/
+.direnv/
+result
