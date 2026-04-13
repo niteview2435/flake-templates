@@ -6,10 +6,11 @@ all:
 		git init; \
 		git branch -M main; \
 		git add .; \
-		git commit -m "Initial commit"; \
 		direnv allow; \
 		echo "Setup completed successfully. Removing Makefile..."; \
 		rm Makefile; \
+		git add .; \
+		git commit -m "Initial commit"; \
 	else \
 		echo "Aborted: .git directory already exists."; \
 	fi
