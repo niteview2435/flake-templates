@@ -16,6 +16,14 @@
           path = ./latex;
           description = "Latex environment with LuaLaTeX";
         };
+        r = {
+          path = ./r;
+          description = "R environment";
+        };
+        ipynb = {
+          path = ./ipynb;
+          description = "IPython Notebook environment";
+        };
       };
 
       devShells.${system}.default = pkgs.mkShell {
