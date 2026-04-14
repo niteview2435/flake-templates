@@ -10,7 +10,10 @@
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
       latexmkrc = pkgs.writeText "latexmkrc" ''
-        $lualatex = 'lualatex -interaction=nonstopmode -halt-on-error %O %S';
+        $aux_dir = 'build';
+        $out_dir = '.';
+        $silent = 1;
+        $lualatex = 'lualatex -interaction=batchmode -halt-on-error %O %S';
         $pdf_mode = 4;
         $postscript_mode = $dvi_mode = 0;
         $max_repeat = 5;
@@ -38,18 +41,21 @@
         varwidth
         hyperref
       ]);
+      mkCommand = pkgs.writeShellScriptBin "mk" ''
+        latexmk -r "$PRJ_ROOT/.latexmkrc" "$@"
+    '';
     in
     {
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = [
           tex
           pkgs.texlab
+          mkCommand
         ];
         shellHook = ''
           export PRJ_ROOT="$(pwd)"
           export TEXINPUTS=".:$PRJ_ROOT//:"
           ln -sf ${latexmkrc} .latexmkrc
-          alias mk='latexmk'
         '';
       };
     };
