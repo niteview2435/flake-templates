@@ -1,6 +1,6 @@
 % myrepofmt.cls
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{myrepofmt}[2026/04/07 Formal Physics Report Class]
+\ProvidesClass{myrepofmt}[2026/04/07 Formal Report Class]
 
 % --- オプション処理 ---
 \newif\if@usecoverpage
@@ -123,7 +123,7 @@
 }
 
 % ==================================================
-% 定理・定義・環境のデザイン定義 (中略)
+% 定理・定義・環境のデザイン定義
 % ==================================================
 \tcbset{
     formalstyle/.style={
@@ -141,7 +141,8 @@
         borderline north={0.5pt}{0pt}{secondary},
         borderline south={0.5pt}{0pt}{secondary},
         detach title, before upper={\tcbtitle\quad}, sharp corners,
-    }
+    },
+    noqedsymbol/.style={after upper={}}
 }
 
 \newtcolorbox{rem}[1][]{
@@ -173,10 +174,11 @@
     after upper={\hfill\ensuremath{\blacksquare}}
 }
 
-\newtcolorbox{answer}{
+\newtcolorbox{answer}[1][]{
     blanker, breakable, top=2mm, bottom=2mm,
     before upper={\textbf{\rmfamily 解答}\quad},
-    after upper={\hfill\ensuremath{\square}}
+    after upper={\hfill\ensuremath{\square}},
+    #1
 }
 
 % ==================================================
