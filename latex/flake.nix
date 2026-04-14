@@ -49,6 +49,7 @@
           export PRJ_ROOT="$(pwd)"
           export TEXINPUTS=".:$PRJ_ROOT//:"
           ln -sf ${latexmkrc} .latexmkrc
+          alias mk='latexmk'
         '';
       };
     };
