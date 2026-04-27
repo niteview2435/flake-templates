@@ -43,7 +43,7 @@
       ]);
       mkCommand = pkgs.writeShellScriptBin "mk" ''
         latexmk -r "$PRJ_ROOT/.latexmkrc" "$@"
-    '';
+      '';
     in
     {
       devShells.${system}.default = pkgs.mkShell {

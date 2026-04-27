@@ -70,6 +70,7 @@
 
 % --- カスタムコマンド ---
 \newcommand{\redterm}[1]{\textbf{#1}}
+\newcommand{\qed}{\hfill\ensuremath{\square}}
 
 % ==================================================
 % \maketitle の再定義 (日付の有無・表紙切替対応)
