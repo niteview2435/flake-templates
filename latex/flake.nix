@@ -44,6 +44,9 @@
       mkCommand = pkgs.writeShellScriptBin "mk" ''
         latexmk -r "$PRJ_ROOT/.latexmkrc" "$@"
       '';
+      skimCommand = pkgs.writeShellScriptBin "skim" ''
+        open -a Skim "$@"
+      '';
     in
     {
       devShells.${system}.default = pkgs.mkShell {
@@ -51,6 +54,7 @@
           tex
           pkgs.texlab
           mkCommand
+          skimCommand
         ];
         shellHook = ''
           export PRJ_ROOT="$(pwd)"
