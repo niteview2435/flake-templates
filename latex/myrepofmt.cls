@@ -27,6 +27,7 @@
 \RequirePackage[unicode, hidelinks]{hyperref}
 \RequirePackage{enumitem}
 \RequirePackage{bm}
+\RequirePackage{enumitem}
 
 % PDFのしおり（ブックマーク）の設定
 \hypersetup{
